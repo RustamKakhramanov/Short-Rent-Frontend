@@ -1,0 +1,15 @@
+.detailDescription{
+    font-weight: bold;
+    font-size: 18px;
+    margin-right:10px
+}
+
+.amountDescription {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right:5px;
+}
+
+.amountValue {
+    font-size: 28px;
+}

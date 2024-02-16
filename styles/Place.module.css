@@ -1,0 +1,179 @@
+.cardText {
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.adress:last-child {
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+
+
+color: #495BE7;
+
+}
+.borderRadius  {
+    border-radius: 16px;
+}
+
+.subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 26px;
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+.subtitleAccordion {
+    font-style: normal;
+    font-weight: 500;
+    
+    font-size: 19px;
+    line-height: 21px;
+    margin-right: auto;
+    
+    
+}
+.subtitleAddition {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 19px;
+    margin-right: auto;
+    
+    
+}
+.subtitlePrice {
+    font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+    color:#AAA;
+    display: flex;
+
+    align-self: flex-end;
+    margin: 20px 0px;
+     align-items: flex-end;
+    }
+.endText {
+   
+   
+   margin-left: 5px;
+   overflow: 'visible';
+   
+}
+.dots{
+    
+    margin-left: 5px;
+    content: '';
+  bottom: .4rem;
+  width: 100%;
+  height: 0;
+  line-height: 0;
+  border-bottom: 2px dotted 
+}
+.serviceIcon{ 
+    color: black;
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+}
+.serviceMobileIcon{ 
+    color: white;
+    width: 21px;
+    height: 21px;
+    
+}
+.tabPanel {
+    padding: 0px ;
+}
+
+.priceText {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    
+    align-self: flex-end;
+}
+.priceTextLow {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    align-self: flex-end;
+}
+.chip {
+    background-color: rgba(73, 91, 231, .1);
+    color:#495BE7;
+    margin-right: auto;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+    width: fit-content;
+    border-radius: 6px;
+    height: 16px;
+    line-height: 10px;
+    font-size:10px;
+}
+.counter {
+    
+    color:black;
+    height: 20px;
+    font-size: 12px;
+   line-height: 9px;
+    flex-flow: column;
+    align-items: flex-start;
+    border-radius: 5px;
+    border: 1px solid rgba(224, 226, 231, 1);
+    margin: 0px 2px;
+}
+.textField{
+    font-size: 10px;
+    line-height: 10px;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgba(224, 226, 231, 1);
+    width: 50px;
+    
+
+}
+.subtitle{
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.aContainer{
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.aItem + .aItem{
+    margin-top:10px;
+}
+
+.serviceIcon{
+    width: 21px;
+    height: 21px;
+}
+
+.aEndText, .aStartText{
+    font-size:14px;
+    line-height: 20px;
+}
+.aEndText{
+    margin-left:10px;
+    font-weight: 400;
+    color: #AAAAAA;
+}
+
+.aStartText{
+    font-style: normal;
+    font-weight: 500;
+}
+
+.placePriceDark{
+    
+}
