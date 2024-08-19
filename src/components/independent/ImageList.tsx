@@ -117,7 +117,7 @@ export default function ImageList({ images, h = '300', w = '500', ...other }: iI
                                 objectFit={'cover'}
                             />
                             {
-                                previews.length > showed.length && index === limit - 1 && <ImagePreview count={images.length - index - 2} onClick={() => setAllPreviews()} />
+                                previews.length > showed.length && index === limit - 1 && <ImagePreview count={images.length - index - 1} onClick={() => setAllPreviews()} />
                             }
                         </ImageListItem>
 

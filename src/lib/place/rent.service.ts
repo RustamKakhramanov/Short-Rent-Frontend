@@ -13,8 +13,8 @@ interface iRentData {
 }
 
 function rent(place: iPlace, data: iRentData) {
-    data.scheduled_at.setTime(data.scheduled_at.getTime() + (6*60*60*1000));
-    data.scheduled_end_at.setTime(data.scheduled_end_at.getTime() + (6*60*60*1000));
+    data.scheduled_at.setTime(data.scheduled_at.getTime() + (5*60*60*1000));
+    data.scheduled_end_at.setTime(data.scheduled_end_at.getTime() + (5*60*60*1000));
     let company = place?.company?.slug || 'synergy';
     
     return fetcher.post(`/api/companies/${company}/places/${place.slug}/rents`, data);

@@ -29,8 +29,6 @@ export default function AdditionalList({ items, setItems }: props) {
             <AccordionDetails
                 sx={{ padding: 0 }}>
                 <AdditionItem />
-                <AdditionItem />
-                <AdditionItem />
             </AccordionDetails>
         </Accordion>
     )

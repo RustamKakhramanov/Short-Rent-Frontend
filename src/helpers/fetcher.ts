@@ -25,7 +25,7 @@ async function get(url: string, body: any = {}) {
         headers: { Authorization: getAuthHeader() }
     }).catch((e) => handleError(e.response));
 
-    return response.data;
+    return response?.data;
 };
 
 
@@ -88,7 +88,7 @@ function getAuthHeader(): string {
 
 
 function handleError(e:any){
-    if(e.status === 401){
+    if(e?.status === 401){
         userService.logout()
 
         return  window.location.href = '/auth/login'

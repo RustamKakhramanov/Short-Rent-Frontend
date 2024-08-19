@@ -96,9 +96,8 @@ export default function RentWidget({ place, mobile }: props) {
                 dates={dates}
                 setDates={setDates} />
 
-            {/* 
-        { <AdditionalList items={additionalItems} setItems={setAdditionalItems} /> }
-        {<CancelRules /> } */}
+       {/* <AdditionalList items={additionalItems} setItems={setAdditionalItems} />  */}
+       {/* <CancelRules /> */}
 
 
             <RentButton

@@ -140,7 +140,6 @@ const getDates = (dates: props["dates"]) => {
 
 export default function ChoosedTimeSaver(props: any) {
 
-
     return props.variant == 'desktop' && props ?
         <DesktopChoosedTimeSaver {...props} />
         :
