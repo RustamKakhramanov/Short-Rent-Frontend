@@ -15,14 +15,14 @@ const TimeB = (index: number, value: ITimeShedule, handleChange: (arg0: number) 
     const theme = useTheme()
     const transformDates = (value: string) => {
         let date = new Date(value);
-        
+
         return (padTo2Digits(date.getHours()) + ':' + padTo2Digits(date.getMinutes()))
     }
 
     return (
         <div
             className={
-                `${styles.squareBtn} ${active ? styles.squareBtnEnable : ''} 
+                `${styles.squareBtn} ${active ? styles.squareBtnEnable : ''}
                 ${value.active ? styles.squareBtnDisabled : ''}
                 ${theme.palette.mode === 'dark' ? styles.squareBtnDisabledDark : ''}`
             }
@@ -36,7 +36,7 @@ const TimeB = (index: number, value: ITimeShedule, handleChange: (arg0: number) 
     );
 };
 
-export default function TimeRange({ schedules, activeItems, setItems, loading}: props) {
+export default function TimeRange({ schedules, activeItems, setItems, loading }: props) {
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
     const containerStyles = isTabletOrMobile ?
         {
@@ -61,7 +61,7 @@ export default function TimeRange({ schedules, activeItems, setItems, loading}: 
             border: '1px solid rgba(224, 226, 231, 1)'
         }
     }
-    
+
     const containerStyle = {
         padding: '20px',
         minHeight: '70vh'
@@ -75,7 +75,7 @@ export default function TimeRange({ schedules, activeItems, setItems, loading}: 
         color: '#495BE7',
         padding: '20px'
     }
-    
+
     const partOfDay = [
         'Ночь',
         'Утро',
@@ -126,47 +126,47 @@ export default function TimeRange({ schedules, activeItems, setItems, loading}: 
 
     return (
         <Box style={containerStyles ? containerStyles : defaultContainerStyles}>
-                <Grid container sx={containerStyle} justifyContent={'center'} alignItems={'center'}>
-                    {schedules && schedules.length > 2 && schedules.map((value, index) => {
-                        const renderWithDayPart = (index:number, partKey:number) => (
-                            <React.Fragment key={index}>
-                                <Grid item xs={12} sx={itemStyle}>
-                                    <Typography sx={headerStyle}>{partOfDay[partKey]}</Typography>
-                                </Grid>
-                                <Grid item xs={isTabletOrMobile ? 4 : 3} sx={itemStyle}>
-                                    {TimeB(index, value, handleChange, activeItems.includes(index) ? true : false)}
-                                </Grid>
-                            </React.Fragment>)
+            <Grid container sx={containerStyle} justifyContent={'center'} alignItems={'center'}>
+                {schedules && schedules.length > 2 && schedules.map((value, index) => {
+                    const renderWithDayPart = (index: number, partKey: number) => (
+                        <React.Fragment key={index}>
+                            <Grid item xs={12} sx={itemStyle}>
+                                <Typography sx={headerStyle}>{partOfDay[partKey]}</Typography>
+                            </Grid>
+                            <Grid item xs={isTabletOrMobile ? 4 : 3} sx={itemStyle}>
+                                {TimeB(index, value, handleChange, activeItems.includes(index) ? true : false)}
+                            </Grid>
+                        </React.Fragment>)
 
-                        const checkActual = (start:number, end:number) => (
-                            schedules.filter(v => (new Date(v.time)).getHours() >= start && (new Date(v.time)).getHours() < end)[0]?.time === value.time
-                        )
+                    const checkActual = (start: number, end: number) => (
+                        schedules.filter(v => (new Date(v.time)).getHours() >= start && (new Date(v.time)).getHours() < end)[0]?.time === value.time
+                    )
 
-                        if ( checkActual(0, 5) && index != schedules.length - 1) {
-                            return renderWithDayPart(index, 0)
-                        }else
-                        if ( checkActual(5, 12) && index != schedules.length - 1) {
+                    if (checkActual(0, 5) && index != schedules.length - 1) {
+                        return renderWithDayPart(index, 0)
+                    } else
+                        if (checkActual(5, 12) && index != schedules.length - 1) {
                             return renderWithDayPart(index, 1)
 
-                        }else
-                        if ( checkActual(12, 18) && index != schedules.length - 1) {
-                            return renderWithDayPart(index, 2)
+                        } else
+                            if (checkActual(12, 18) && index != schedules.length - 1) {
+                                return renderWithDayPart(index, 2)
 
-                        }else
-                        if ( checkActual(18, 24)&& index != schedules.length - 1) {
-                            return renderWithDayPart(index, 3)
-                        } else {
-                            return (
-                                <Grid key={index} item xs={isTabletOrMobile ? 4 : 3} sx={itemStyle}>
-                                    {TimeB(index, value, handleChange, activeItems.includes(index) ? true : false)}
-                                </Grid>)
-                        }
-                       
-                    })}
+                            } else
+                                if (checkActual(18, 24) && index != schedules.length - 1) {
+                                    return renderWithDayPart(index, 3)
+                                } else {
+                                    return (
+                                        <Grid key={index} item xs={isTabletOrMobile ? 4 : 3} sx={itemStyle}>
+                                            {TimeB(index, value, handleChange, activeItems.includes(index) ? true : false)}
+                                        </Grid>)
+                                }
 
-                    {schedules && schedules.length <= 2 && !loading &&   'В выбранный день не осталось мест' }
-                    {loading && <ThreeDots stroke="#1976d2" strokeOpacity={.5} /> }
-                </Grid>
+                })}
+
+                {schedules && schedules.length <= 2 && !loading && 'В выбранный день не осталось мест'}
+                {loading && <ThreeDots stroke="#1976d2" strokeOpacity={.5} />}
+            </Grid>
         </Box>
     );
 }

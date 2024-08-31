@@ -19,7 +19,7 @@ const Marker = (props: any) => {
   const { color, name, id } = props;
   return (
     <div className="marker"
-      style={{ backgroundColor: color, cursor: 'pointer'}}
+      style={{ backgroundColor: color, cursor: 'pointer' }}
       title={name}
     />
   );
@@ -38,8 +38,8 @@ export default function SimpleMap({ coordinates }: props) {
   };
 
   return (
-    <div style={{ height: '40vh', width: '100%', borderRadius: '16px', marginTop:'10px' }}>
-      <GoogleMapReact
+    <div style={{ height: '40vh', width: '100%', borderRadius: '16px', marginTop: '10px' }}>
+      {/* <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBLgHfyZyApYBKP1JSENuCfiS_Sg-BP7j0' }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
@@ -48,14 +48,14 @@ options={{
   styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
 }}
       >
-      
+
         <Marker
           lat={defaultProps.center.lat}
           lng={defaultProps.center.lng}
           name="My Marker"
           color="blue"
         />
-      </GoogleMapReact>
+      </GoogleMapReact> */}
     </div>
   );
 }
