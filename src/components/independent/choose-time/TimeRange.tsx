@@ -89,33 +89,18 @@ export default function TimeRange({ schedules, activeItems, setItems, loading }:
         if (m[index].active) {
             return
         }
-
-        let newItems: any = [];
-
-        if (activeItems.length >= 1 && activeItems[activeItems.length - 1] !== index && activeItems[0] !== index) {
-            if (index > activeItems[0]) {
-                for (let i = activeItems[0]; i <= index; i++) {
-                    if (m[i].active) {
-                        newItems = [index]
-                        break;
-                    }
-                    newItems.push(i)
-                }
-            } else {
-                for (let i = index; i <= activeItems[0]; i++) {
-                    if (m[i].active) {
-                        newItems = [index]
-                        break;
-                    }
-
-                    newItems.push(i)
-                }
-            }
-        } else {
-            newItems.push(index)
-        }
-
-        setItems(newItems)
+        //new logic
+        // let newItems: any = [];
+        // const checkCanAdd = (key) => {
+        //     return m[key] && !m[key].active
+        // }
+        // if (checkCanAdd(index + 1)) {
+        //     newItems = [index, index + 1, index + 2]
+        // } else {
+        //     newItems = []
+        // }
+        setItems([index, index])
+        // end new logic
     }
 
     let defaultContainerStyles = {
@@ -136,7 +121,8 @@ export default function TimeRange({ schedules, activeItems, setItems, loading }:
                             <Grid item xs={isTabletOrMobile ? 4 : 3} sx={itemStyle}>
                                 {TimeB(index, value, handleChange, activeItems.includes(index) ? true : false)}
                             </Grid>
-                        </React.Fragment>)
+                        </React.Fragment>
+                    )
 
                     const checkActual = (start: number, end: number) => (
                         schedules.filter(v => (new Date(v.time)).getHours() >= start && (new Date(v.time)).getHours() < end)[0]?.time === value.time
@@ -164,7 +150,7 @@ export default function TimeRange({ schedules, activeItems, setItems, loading }:
 
                 })}
 
-                {schedules && schedules.length <= 2 && !loading && 'В выбранный день не осталось мест'}
+                {schedules && schedules.filter((i) => !i.active).length <= 2 && !loading && 'В выбранный день не осталось мест'}
                 {loading && <ThreeDots stroke="#1976d2" strokeOpacity={.5} />}
             </Grid>
         </Box>

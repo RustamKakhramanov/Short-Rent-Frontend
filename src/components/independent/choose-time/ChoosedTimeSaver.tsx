@@ -134,7 +134,7 @@ export const DesktopChoosedTimeSaver = ({ dates, tooglePopup, setAlert }: props)
 const getDates = (dates: props["dates"]) => {
     return [
         dates[0] ? padTo2Digits(dates[0].getHours()) + ':' + padTo2Digits(dates[0].getMinutes()) : '--:--',
-        dates[1] ? padTo2Digits(dates[1].getHours()) + ':' + padTo2Digits(dates[1].getMinutes()) : '--:--'
+        dates[1] ? padTo2Digits(dates[1].getHours() + 1) + ':' + padTo2Digits(dates[1].getMinutes()) : '--:--'
     ]
 }
 

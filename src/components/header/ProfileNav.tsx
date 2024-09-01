@@ -27,14 +27,14 @@ export default function ProfileNav(props: any) {
     }
 
     const router = useRouter()
-    
+
     return (
         <div >
             {authorized ?
                 <ButtonGroup variant="contained" aria-label="outlined primary button group">
                     <Button onClick={() => router.push('/rents')}>
                     {/* <Button onClick={() => router.push('/profile')}> */}
-                        <AccountCircleIcon/> Мои аренды
+                        <AccountCircleIcon/> Мои записи
                     </Button>
                     {/* <Button onClick={() => router.push('/profile')}>
                         <AccountCircleIcon/>
@@ -55,7 +55,7 @@ export default function ProfileNav(props: any) {
                     fontSize: '16px',
                     alignContent: 'center',
                     color: theme.palette.mode == 'dark'? '#fff':'#000'
-                }}> 
+                }}>
                 <Link href='/auth/login'>Войти</Link>
                 </Typography>
 

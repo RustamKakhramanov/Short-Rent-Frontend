@@ -109,7 +109,7 @@ export default function RentWidget({ place, mobile }: props) {
 
             <Divider sx={{ color: 'black' }}></Divider>
 
-            {dates.length > 1 && <Cost cost={cost} price={price} place={place} additionalItems={additionalItems} dates={dates} />}
+            {/* {dates.length > 1 && <Cost cost={cost} price={price} place={place} additionalItems={additionalItems} dates={dates} />} */}
         </ThemedPaper>
     )
 
@@ -142,7 +142,7 @@ export default function RentWidget({ place, mobile }: props) {
 
                 {/* <CancelRules /> */}
 
-                {dates.length > 1 && <Cost cost={cost} price={price} place={place} additionalItems={additionalItems} dates={dates} />}
+                {/* {dates.length > 1 && <Cost cost={cost} price={price} place={place} additionalItems={additionalItems} dates={dates} />} */}
 
                 {dates.length > 1
                     &&

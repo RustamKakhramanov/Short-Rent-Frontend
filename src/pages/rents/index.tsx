@@ -47,7 +47,7 @@ export default function Rents() {
                 >
                     <Grid item xs={12} md={10}>
                         <Typography variant="h1" sx={{ fontSize: '3.5rem', mb: 4, textAlign: 'center' }} >
-                            Мои аренды
+                            Мои записи
                         </Typography>
                     </Grid>
 
@@ -64,23 +64,23 @@ export default function Rents() {
                                         {
                                             i === 3?
 
-                                            <RentCard 
-                                            rent={item} 
+                                            <RentCard
+                                            rent={item}
                                             style={{padding:'0 0 8px'}}
                                             infoCol={6}
                                              sliderCol={6}
                                              rentTouchedCounts={rentTouchedCounts} setRentTouchedCounts={setRentTouchedCounts}
                                             />
                                             :
-                                            <RentCard 
-                                            rent={item} 
+                                            <RentCard
+                                            rent={item}
                                             style={{padding:'0 0 8px'}}
                                             infoCol={12}
                                              sliderCol={12}
                                              rentTouchedCounts={rentTouchedCounts} setRentTouchedCounts={setRentTouchedCounts}
                                             />
                                         }
-                                       
+
                                     </Grid>
 
                                 ))

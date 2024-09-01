@@ -23,9 +23,9 @@ const Transition = React.forwardRef(function Transition(
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function Cacncelrent({ rent, children, rentTouchedCounts, setRentTouchedCounts, ...other }: 
-    { 
-        rentTouchedCounts?: number, setRentTouchedCounts?: (i:number) => void, rent: iRent, children: any 
+export default function Cacncelrent({ rent, children, rentTouchedCounts, setRentTouchedCounts, ...other }:
+    {
+        rentTouchedCounts?: number, setRentTouchedCounts?: (i:number) => void, rent: iRent, children: any
 }) {
     const [dialog, showDialog] = useState(false)
     const [alert, showAlert] = useState(false)
@@ -69,10 +69,10 @@ export default function Cacncelrent({ rent, children, rentTouchedCounts, setRent
                     keepMounted
                     aria-describedby="alert-dialog-slide-description"
                 >
-                    <DialogTitle>Вы действительно хотите отменить бронь?</DialogTitle>
+                    <DialogTitle>Вы действительно хотите отменить запись на прием?</DialogTitle>
                     <DialogContent>
                         <DialogContentText >
-                            Данное действие приведет к отмене брони
+                            Данное действие приведет к отмене записи к специалисту
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
@@ -82,7 +82,7 @@ export default function Cacncelrent({ rent, children, rentTouchedCounts, setRent
                 </Dialog>
             }
             <MobileAdaptiveButton onClick={() => showDialogHandle()} variant='outlined' color="error" {...other}>
-                {children ? children : 'Отменить аренду'}
+                {children ? children : 'Отменить запись'}
             </MobileAdaptiveButton>
         </React.Fragment>
     )

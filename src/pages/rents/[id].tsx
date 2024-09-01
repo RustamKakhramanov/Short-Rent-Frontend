@@ -80,7 +80,7 @@ export default function Rent() {
 
                                         >
                                             <Typography variant="h4" sx={{ color: '#fff' }} >
-                                                Вы арендовали: {place.name}
+                                                Вас примет: {place.name}
                                             </Typography>
                                             <Button size="medium"
                                                 variant="outlined"
@@ -108,11 +108,11 @@ export default function Rent() {
                 <Grid item xs={12} md={6}>
                 <Hidden mdDown={true}>
                 <Typography variant="h1" sx={{ fontSize: 36, mt:2 }} >
-                        Детали аренды:
+                        Детали записи:
                     </Typography>
 
             </Hidden>
-             
+
 
 
                    <RentInfo rent={rent}/>
@@ -121,7 +121,7 @@ export default function Rent() {
                    <Grid container spacing={1}
                    sx={
                     {
-                        
+
                         alignItems:'center'
                     }
                    }
@@ -130,13 +130,13 @@ export default function Rent() {
 
             >
                     <Grid item xs={12} md={6} sx={{mt: 3,}}>
-                        <span className={styles.amountDescription}>Цена:</span> 
-                        <span className={styles.amountValue}>{parseCurrency(rent?.currency)}{+rent?.amount}</span> 
+                        <span className={styles.amountDescription}>Цена:</span>
+                        <span className={styles.amountValue}>{parseCurrency(rent?.currency)}{+rent?.amount}</span>
                     </Grid>
 
-                    <Grid item xs={12} md={6} sx={{ 
-                        display:'flex', 
-                        
+                    <Grid item xs={12} md={6} sx={{
+                        display:'flex',
+
                         [theme.breakpoints.up('sm')]: {
                             justifyContent:'flex-end' ,
                           },
@@ -146,9 +146,9 @@ export default function Rent() {
                     </Grid>
 
             </Grid>
-              
-        
-            
+
+
+
                 </Grid>
 
 

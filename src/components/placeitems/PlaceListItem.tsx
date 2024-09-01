@@ -94,7 +94,7 @@ export default function PlaceListItem({ place, children, sx, infoCol = 6, slider
                                 >
                                     <Grid item xs={12}>
                                         <Typography variant="h6" sx={{ color: '#fff', textAlign: 'left', lineHeight: '1.2' }} >
-                                            Вы арендовали: <br />{place.name}
+                                            Вас будет ожидать: <br />{place.name}
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={12}>
@@ -103,7 +103,7 @@ export default function PlaceListItem({ place, children, sx, infoCol = 6, slider
                                             sx={{ color: '#fff', mt: 2 }}
                                             onClick={(e) => goToRentable(e)}
                                         >
-                                            Посмотреть место
+                                            Посмотреть анкету
                                         </Button>
                                     </Grid>
                                 </Grid>

@@ -95,11 +95,11 @@ export default function RentInfo({ rent, micro = false }: { micro: boolean, rent
                 <span className={styles.detailValue}>{formatDate(rent.scheduled_at, true, true)}</span>
 
             </Grid>
-
+{/*
             <Grid item xs={12} >
                 <span className={styles.detailDescription}>Конец:</span>
                 <span className={styles.detailValue}>{formatDate(rent.scheduled_end_at, true, true)}</span>
-            </Grid>
+            </Grid> */}
 
 
 
