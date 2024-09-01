@@ -54,7 +54,15 @@ export default function RentWidget({ place, mobile }: props) {
                 currency: price.currency,
                 amount: cost,
             }
-        ).then((res: iRent) => router.push('/rents/' + res.id))
+        ).then((res: iRent) => {
+            router.push('/rents/' + res.id)
+        }).catch((e: Response) => {
+            if(e.status == 400){
+                e.json().then(errorData => {
+                    alert(errorData.message)
+                })
+            }
+        })
 
         setProgress?.(false)
     }

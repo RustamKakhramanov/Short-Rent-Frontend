@@ -20,7 +20,7 @@ import { Button, Grid, ListItem, ListItemAvatar, ListItemText, SvgIconTypeMap } 
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { useMediaQuery } from 'react-responsive';
 import { iAbility } from '../../../interfaces'
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Item from '../../independent/ThemedPaper';
 
 interface Props {
@@ -41,15 +41,16 @@ const ServiceItem = ({ title, icon, subtitle }: React.PropsWithChildren<Props>,)
                     </Avatar>
                 </ListItemAvatar>
                 :
-                <ListItemText  primary={title} secondary={subtitle} />
+                <ListItemText primary={title} secondary={subtitle} />
             </ListItem>
 
         </Box>
         :
-        (<Stack sx={{ display: 'flex', flexDirection: 'row', flexWrap:'nowrap'}} className={styles.aItem}>
+        (<Stack sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap' }} className={styles.aItem}>
             {React.createElement(icon, { className: styles.serviceIcon })}
-            <Typography noWrap={true} className={styles.aStartText} sx={{ overflow: 'visible'}}>{title}</Typography>
-            <Typography noWrap={true}  className={styles.aEndText} sx={{ overflow: 'visible' }}>{subtitle} </Typography>
+            <Typography noWrap={true} className={styles.aStartText} sx={{ overflow: 'visible' }}>{title}</Typography>
+            <br />
+            <Typography noWrap={true} className={styles.aEndText} sx={{ overflow: 'visible' }}>{subtitle} </Typography>
         </Stack>);
 
 }
@@ -58,41 +59,41 @@ export default function Abilities({ abilities }: { abilities: [iAbility] }) {
     const [showed, setShowed] = useState<iAbility[]>([]);
     const limit = 3;
 
-    useEffect(()=>{
-        setShowed( 
-            abilities.length > limit ? abilities.slice(0, limit): abilities
-            )
+    useEffect(() => {
+        setShowed(
+            abilities.length > limit ? abilities.slice(0, limit) : abilities
+        )
     }, [abilities])
 
     const items = showed.map((ability, index) => {
         return (
             <ServiceItem icon={TaskAltIcon}
-            title={ability.name}
-            subtitle={ability.value}
-            key={index} />
+                title={ability.name}
+                subtitle={ability.value}
+                key={index} />
         )
-   
     })
+
     const changeShowed = () => {
-        setShowed( abilities.length > showed.length ?  abilities : abilities.slice(0, limit))
+        setShowed(abilities.length > showed.length ? abilities : abilities.slice(0, limit))
     }
 
-    return (abilities &&  abilities.length > 0 &&
+    return (abilities && abilities.length > 0 &&
         <div style={{ marginTop: 20 }}>
             <Typography className={styles.subtitle}>Услуги</Typography>
             <div className={styles.aContainer}>
                 {items}
             </div>
-            {abilities.length > limit && 
-                <Button 
-                onClick={()=>changeShowed()}
-                
-                variant="outlined" sx={{ marginTop:1, width: '100%', height: '45px', textTransform: 'none', backgroundColor: 'rgba(73, 91, 231, 0.05)', border: 'none', fontSize: '14px', borderRadius: '16px' }}>
-                    
+            {abilities.length > limit &&
+                <Button
+                    onClick={() => changeShowed()}
+
+                    variant="outlined" sx={{ marginTop: 1, width: '100%', height: '45px', textTransform: 'none', backgroundColor: 'rgba(73, 91, 231, 0.05)', border: 'none', fontSize: '14px', borderRadius: '16px' }}>
+
                     {
-                        abilities.length > showed.length ?   'Показать все услуги': 'Свернуть список услуг' 
+                        abilities.length > showed.length ? 'Показать все услуги' : 'Свернуть список услуг'
                     }
-                    </Button>
+                </Button>
             }
         </div>
     )

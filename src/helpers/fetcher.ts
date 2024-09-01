@@ -94,7 +94,7 @@ function handleError(e:any){
         return  window.location.href = '/auth/login'
     }
 
-    return e
+    return Promise.reject(e); 
 }
 
 function handleResponse(response: any) {
@@ -118,5 +118,5 @@ function handleResponse(response: any) {
         return data;
     });
 
-   
+
 }
