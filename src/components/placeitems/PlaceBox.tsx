@@ -18,7 +18,7 @@ import Item from '../independent/ThemedPaper';
 import { GridView } from '@mui/icons-material';
 import { Button, Grid, ListItem, ListItemAvatar, ListItemText, SvgIconTypeMap } from '@mui/material';
 import SimpleMap from '../independent/Map';
-import {  iPlace } from '../../interfaces';
+import { iPlace } from '../../interfaces';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { useMediaQuery } from 'react-responsive';
 import Abilities from './content/Abilities'
@@ -36,15 +36,15 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
-  let boxSx = 
-  useMediaQuery({ query: '(max-width: 900px)' }) ? 
-  {
-    pt:4
-  }
-  : 
-  {
-    p:3
-  }
+  let boxSx =
+    useMediaQuery({ query: '(max-width: 900px)' }) ?
+      {
+        pt: 4
+      }
+      :
+      {
+        p: 3
+      }
 
   return (
     <div
@@ -56,7 +56,7 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === index && (
         <Box sx={boxSx}
-         >
+        >
           {children}
         </Box>
       )}
@@ -68,7 +68,7 @@ interface item {
   place: iPlace; // make this optional since the data from PeopleState is optional
 }
 
-export default function PlaceBox({place}: item) {
+export default function PlaceBox({ place }: item) {
   const { coordinates, description, } = place;
 
   const theme = useTheme();
@@ -90,7 +90,7 @@ export default function PlaceBox({place}: item) {
     '& .MuiTabs-indicator': {
       display: 'flex',
       justifyContent: 'center',
-      
+
     },
 
     [theme.breakpoints.up('xs')]: {
@@ -100,46 +100,48 @@ export default function PlaceBox({place}: item) {
 
       width: '100%',
       backgroundColor: 'black',
-      
+
     },
   });
-  
+
   return (
-    <Box sx={{ bgcolor: 'background.transparent',}} >
-      
-        <StyledTabs
-          value={value}
-          onChange={handleChange}
-          //indicatorColor="secondary"
-          textColor="inherit"
-          
-          aria-label="full width tabs example"
-          
-        >
-          <Tab label="Описание"  />
-          <Tab label="Отзывы" />
-          <Tab label="Карта"  />
-        </StyledTabs>
+    <Box sx={{ bgcolor: 'background.transparent', }} >
+
+      <StyledTabs
+        value={value}
+        onChange={handleChange}
+        //indicatorColor="secondary"
+        textColor="inherit"
+
+        aria-label="full width tabs example"
+
+      >
+        <Tab label="Описание" />
+        <Tab label="Отзывы" />
+        <Tab label="Карта" />
+      </StyledTabs>
 
 
-        <TabPanel  value={value} index={0} dir={theme.direction} >
-         
+      <TabPanel value={value} index={0} dir={theme.direction} >
+
         <Typography className={styles.subtitle}>Общее описание</Typography>
-            <Typography variant='body1'>{description}</Typography>
+        <Typography variant='body1'>{description}</Typography>
 
-            <Abilities abilities={place.abilities}/>
-        </TabPanel>
-        
-        <TabPanel value={value} index={1} dir={theme.direction}>
-          <Reviews place={place}/>
-        </TabPanel>
-        
+        <Abilities abilities={place.abilities} />
+      </TabPanel>
+
+      <TabPanel value={value} index={1} dir={theme.direction}>
+        <Reviews place={place} />
+      </TabPanel>
+
+      {
         <TabPanel value={value} index={2} dir={theme.direction}>
 
-          {!isTabletOrMobile && <Typography className={styles.subtitle}>Карта</Typography> }
+          {!isTabletOrMobile && <Typography className={styles.subtitle}>Карта</Typography>}
 
-          <SimpleMap coordinates = {coordinates}></SimpleMap>
+          <SimpleMap coordinates={coordinates}></SimpleMap>
         </TabPanel>
+      }
     </Box>
   );
 }

@@ -13,7 +13,7 @@ export function chosseTimeParse(dates: Date[]) {
             return `${padTo2Digits(start.getHours())
                 }:${padTo2Digits(start.getMinutes())
                 }-${padTo2Digits(end.getHours())
-                }:${padTo2Digits(end.getMinutes())}, 
+                }:${padTo2Digits(end.getMinutes())},
             ${padTo2Digits(start.getDate())}.${padTo2Digits(start.getMonth())}.${start.getFullYear()} г.`
         }
 
@@ -30,7 +30,7 @@ export const formatDate = (date: Date, withOptions = false, withDate = false) =>
     if(withDate) {
         dateString += ' В ' + getTimeDate(date, '')
     }
-    
+
     return dateString
 }
 
@@ -43,7 +43,7 @@ export const getFormatDate = (date:Date,options = {}) =>{
 
 export const getTimeDate = (date:Date, dateString = '') =>{
     let DateObject =(new Date(date));
-    
+
     return  dateString +  padTo2Digits(DateObject.getHours()) +':'+padTo2Digits(DateObject.getMinutes())
 }
 

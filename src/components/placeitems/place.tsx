@@ -29,14 +29,14 @@ export default function Place({ place }: PlaceInterface) {
   const [showContact, toggleShowContact] = useState(false)
 
   const renderContacts = () => (
-    
-    <Grid item xs={12} md={12} container justifyContent={'center'} sx={{mt:1.5}}>
-               {!showContact &&<Button endIcon={<ContactPageIcon/>} variant="outlined" onClick={() => toggleShowContact(!showContact)} sx={{ width:"100%"}}>Показать контакты</Button>}
-              
-              <Collapse in={showContact} timeout="auto" unmountOnExit>
-                <PlaceContactsButtons justifyContent="flex-start"  contacts={place?.contacts}  />
-              </Collapse>
-            </Grid>
+
+    <Grid item xs={12} md={12} container justifyContent={'center'} sx={{ mt: 1.5 }}>
+      {!showContact && <Button endIcon={<ContactPageIcon />} variant="outlined" onClick={() => toggleShowContact(!showContact)} sx={{ width: "100%" }}>Показать контакты</Button>}
+
+      <Collapse in={showContact} timeout="auto" unmountOnExit>
+        <PlaceContactsButtons justifyContent="flex-start" contacts={place?.contacts} />
+      </Collapse>
+    </Grid>
   )
 
   return (
@@ -67,17 +67,17 @@ export default function Place({ place }: PlaceInterface) {
             }
 
             <Grid item xs={12} sx={{ justifyContent: 'start', display: 'flex' }}>
-            <Tooltip title="Кликните для перехода к навигатору" placement="bottom-end">
-  
-                      <Typography gutterBottom>
-                        <Link sx={{ fontWeight: 'bold', textDecoration: 'none' }}
-                          href={'https://yandex.ru/maps/?rtext=~' + place?.coordinates?.latitude + ',' + place?.coordinates?.longitude + '&z=12&l=map'}
-                          target={'_blank'}
-                        >
-                          {place.address}
-                        </Link>
-                      </Typography>
-            </Tooltip>
+              <Tooltip title="Кликните для перехода к навигатору" placement="bottom-end">
+
+                <Typography gutterBottom>
+                  <Link sx={{ fontWeight: 'bold', textDecoration: 'none' }}
+                    href={'https://yandex.ru/maps/?rtext=~' + place?.coordinates?.latitude + ',' + place?.coordinates?.longitude + '&z=12&l=map'}
+                    target={'_blank'}
+                  >
+                    {place.address}
+                  </Link>
+                </Typography>
+              </Tooltip>
 
             </Grid>
 
@@ -90,30 +90,27 @@ export default function Place({ place }: PlaceInterface) {
                 />
               }
               {isDesktopOrLaptop && <ImageList images={place.images} h='300px' w='300px' />}
-              {isTabletOrMobile && 
-              <React.Fragment>
+              {isTabletOrMobile &&
+                <React.Fragment>
                   <RentWidget place={place} mobile={true} />
-                  { place.can_review && <ReviewForm url={ `/api/companies/${place.company_slug}/places/${place.slug}/reviews`} sx={{ mt:2}}/>}
+                  {place.can_review && <ReviewForm url={`/api/companies/${place.company_slug}/places/${place.slug}/reviews`} sx={{ mt: 2 }} />}
                   {renderContacts()}
                 </React.Fragment>
               }
-               
+
               <PlaceBox place={place} />
 
             </Grid>
 
           </Grid>
 
-          {isDesktopOrLaptop && 
-          <Grid item xs={12} md={3.8}>
-            <RentWidget place={place} />
-            { place.can_review && <ReviewForm url={ `/api/companies/${place.company_slug}/places/${place.slug}/reviews`} sx={{ mt:1}}/>}
-            {renderContacts()}
-          </Grid>
-          
+          {isDesktopOrLaptop &&
+            <Grid item xs={12} md={3.8}>
+              <RentWidget place={place} />
+              {place.can_review && <ReviewForm url={`/api/companies/${place.company_slug}/places/${place.slug}/reviews`} sx={{ mt: 1 }} />}
+              {renderContacts()}
+            </Grid>
           }
-
-
         </Grid>
       </Item>
     </React.Fragment>

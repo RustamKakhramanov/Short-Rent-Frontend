@@ -6,20 +6,23 @@ import { iCompany, iPlace } from "../interfaces";
 import { ThreeDots } from 'react-loading-icons'
 import SinglePlace from '../components/placeitems/place';
 import { fetcher } from '../helpers/fetcher';
+import { getGlobalPage } from '../lib/pages/link.service';
 
 const Home = () => {
   const [home, setHome] = useState<Partial<IhomePage>>({});
 
-  interface IhomePage { company: iCompany, place:iPlace, type: string }
+  interface IhomePage { company: iCompany, place: iPlace, type: string }
 
   useEffect(() => {
+    const globalPage = getGlobalPage()
+
     if (!home?.type) {
-      fetcher.get('/home').then(data => {
+      fetcher.get('/home', globalPage).then(data => {
         const home: IhomePage = data;
         setHome(home)
       });
     }
-  }, [home, ]);
+  }, [home]);
 
   // const [channel] = useChannel(
   //   'time',
@@ -39,12 +42,15 @@ const Home = () => {
     }
   }
 
-  function parseCompany({company}: IhomePage) {
+  function parseCompany({ company }: Partial<IhomePage>) {
     //return placesMap(company.places);
     return <div> asdas</div>
   }
 
-  function parsePlace({place}: IhomePage) {
+  function parsePlace({ place }: Partial<IhomePage>) {
+    if (!place) {
+      return null;
+    }
     //return placesMap(company.places);
     return <SinglePlace place={place} />
   }
@@ -60,7 +66,7 @@ const Home = () => {
       width='100%'
       mt={5}
     >
-      <Grid container mb={2}  alignItems="center" direction="row" justifyContent="center">
+      <Grid container mb={2} alignItems="center" direction="row" justifyContent="center">
         {render()}
       </Grid>
     </Grid>

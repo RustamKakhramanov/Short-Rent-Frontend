@@ -46,9 +46,9 @@ export interface iResultRent {
 
 export interface iImage {
     url: string,
-    preview_url: string|null,
-    icon_url: string|null,
-    description: string|null,
+    preview_url: string | null,
+    icon_url: string | null,
+    description: string | null,
     title?: string,
     author?: string,
     featured?: boolean,
@@ -124,11 +124,16 @@ export interface iRent {
     scheduled_end_at: Date,
     currency: string,
     amount: number,
-    rentable:iPlace
+    rentable: iPlace
 }
 export interface iContact {
     type: string,
     owner: string,
     value: string,
     description: string,
+}
+
+export interface PlacePage {
+    company_slug: string
+    place_slug: string
 }

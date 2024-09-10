@@ -62,7 +62,7 @@ export default function AuthForm(props: Props) {
             }else
             if (error.response.status === 404) {
                 setErrors({
-                    phone: ['Номер не найден! Необходима регстрация.']
+                    phone: ['Номер не найден! Необходима регистрация.']
                 })
             }
         });
@@ -100,7 +100,7 @@ export default function AuthForm(props: Props) {
                     name="phone"
                     id="phone"
                     inputComponent={TextMaskCustom as any}
-                    
+
                 />
                 {errors.phone && <FormHelperText id="component-error-text">{errors.phone.join(" ; ")}</FormHelperText>}
             </FormControl>

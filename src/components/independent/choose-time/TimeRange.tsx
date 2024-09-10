@@ -40,7 +40,7 @@ export default function TimeRange({ schedules, activeItems, setItems, loading }:
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
     const containerStyles = isTabletOrMobile ?
         {
-            height: 'calc(60vh - 196px)',
+            height: 'calc(80vh - 244px)',
             width: '100%',
             overflow: 'auto'
         }

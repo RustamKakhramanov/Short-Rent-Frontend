@@ -19,6 +19,8 @@ import LinearProgress from '@mui/material/LinearProgress';
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../providers/AppProvider";
 import { useRouter } from 'next/router';
+import { userService } from '../../lib/user';
+import { saveCurrentLink, saveRedirectLink } from '../../lib/pages/link.service';
 
 interface props {
     place: iPlace,
@@ -46,6 +48,10 @@ export default function RentWidget({ place, mobile }: props) {
 
     const createRent = () => {
         setProgress?.(true)
+        if(!userService.hasUser()){
+            saveCurrentLink()
+        }
+
         rentService.rent(
             place,
             {

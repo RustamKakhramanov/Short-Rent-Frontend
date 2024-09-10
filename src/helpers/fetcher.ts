@@ -87,18 +87,18 @@ function getAuthHeader(): string {
 }
 
 
-function handleError(e:any){
-    if(e?.status === 401){
+function handleError(e: any) {
+    if (e?.status === 401) {
         userService.logout()
 
         return  window.location.href = '/auth/login'
     }
 
-    return Promise.reject(e); 
+    return Promise.reject(e);
 }
 
 function handleResponse(response: any) {
-    if(!response.ok){
+    if (!response.ok) {
         return handleError(response)
     }
 

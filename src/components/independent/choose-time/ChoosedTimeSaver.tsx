@@ -84,6 +84,12 @@ export const MobileChoosedTimeSaver = ({ dates, tooglePopup, activeStep, setActi
             <SimpleSaveBtn sx={{ marginTop: 3 }} variant="contained" onClick={() => handleOnClick()} style={buttonStyle}>
                 {renderButtonText()}
             </SimpleSaveBtn>
+            {
+                activeStep == 2 && dates.length == 2 &&
+                <SimpleSaveBtn sx={{ marginTop: .5 }} onClick={() => setActiveStep(1)} style={buttonStyle}>
+                    Назад
+                </SimpleSaveBtn>
+            }
         </Grid>
     )
 }
@@ -133,8 +139,8 @@ export const DesktopChoosedTimeSaver = ({ dates, tooglePopup, setAlert }: props)
 
 const getDates = (dates: props["dates"]) => {
     return [
-        dates[0] ? padTo2Digits(dates[0].getHours()) + ':' + padTo2Digits(dates[0].getMinutes()) : '--:--',
-        dates[1] ? padTo2Digits(dates[1].getHours() + 1) + ':' + padTo2Digits(dates[1].getMinutes()) : '--:--'
+        dates[0] ? !isNaN(dates[0].getHours()) && padTo2Digits(dates[0].getHours()) + ':' + padTo2Digits(dates[0].getMinutes()) : '--:--',
+        dates[1] ? !isNaN(dates[1].getHours()) && padTo2Digits(dates[1].getHours() + 1) + ':' + padTo2Digits(dates[1].getMinutes()) : '--:--'
     ]
 }
 

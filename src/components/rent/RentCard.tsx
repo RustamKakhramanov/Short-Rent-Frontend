@@ -13,14 +13,8 @@ import { useMediaQuery } from "react-responsive";
 import { rentService } from "../../lib/place/rent.service";
 import { formatDate, parseCurrency } from "../../lib/other";
 import { iRent, iPlace } from '../../interfaces/index';
-import Carousel from 'react-material-ui-carousel'
-import ImagesSlider from '../independent/ImagesSlider';
 import PlaceContactsButtons from '../placeitems/buttons/PlaceContactsButtons';
-import SimpleMap from '../independent/Map';
 import CancelRentButton from './buttons/CancelRent';
-import { abort } from "../../lib/pages/route.service"
-import ErrorPage from 'next/error'
-import { ThreeDots } from 'react-loading-icons'
 import PlaceListItem from '../placeitems/PlaceListItem';
 import MobileAdaptiveButton from '../buttons/MobileAdaptiveButton';
 import Cost from './Cost';
@@ -49,7 +43,7 @@ interface props {
     infoSx?: SxProps,
     infoCol?: number,
     sliderCol?: number,
-    rentTouchedCounts?: number, 
+    rentTouchedCounts?: number,
     setRentTouchedCounts?: (i:number) => void,
 }
 
@@ -83,13 +77,13 @@ export default function RentCard({ rent, rentTouchedCounts, setRentTouchedCounts
                             Посмотреть детально
                         </MobileAdaptiveButton>
                     </Grid>
-    
+
                     <Grid item xs={12} md={infoCol >6 ? 12 : 6}>
 
                         <CancelRentButton sx= {{mt:2}} rentTouchedCounts={rentTouchedCounts} setRentTouchedCounts={setRentTouchedCounts} rent={rent} >
                             Отменить
                         </CancelRentButton>
-                        
+
                     </Grid>
                 </Grid>
             </Box>

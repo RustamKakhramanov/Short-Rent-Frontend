@@ -52,7 +52,7 @@ function ChooseTime(props: props) {
 
 
   useEffect(() => {
-    const effectChangeSchedule = (day:any) => {
+    const effectChangeSchedule = (day: any) => {
       setLoading(true)
       setShedules([])
 
@@ -65,7 +65,7 @@ function ChooseTime(props: props) {
 
       })
     }
-    
+
     effectChangeSchedule(date.toISOString());
 
   }, [date, setDates, setItems, setShedules, setPrice, sheduleUrl])
@@ -122,7 +122,7 @@ function ChooseTime(props: props) {
           </Grid>
           <Grid item sx={{ height: '90vh' }}>
             <Paper style={{ height: '80vh', width: '440px', overflow: 'hidden', borderRadius: '20px', }}>
-              <TimeRange {...props} schedules={schedules} loading={loading}/>
+              <TimeRange {...props} schedules={schedules} loading={loading} />
               <ChoosedTimeSaver variant={'desktop'} dates={dates} setAlert={setAlert} tooglePopup={tooglePopup} />
             </Paper>
           </Grid>
@@ -134,7 +134,7 @@ function ChooseTime(props: props) {
       // Mobile version
       <SwipeableDrawer
         onOpen={() => tooglePopup(true)}
-        transitionDuration={{ appear: 33, enter: 33, exit: 33 }}
+        transitionDuration={{ appear: 50, enter: 50, exit: 33 }}
         anchor='bottom'
         open={openedPopup}
         disableBackdropTransition={true}
@@ -143,11 +143,11 @@ function ChooseTime(props: props) {
           borderRadius: '20px', '.MuiPaper-root': {
             borderRadius: '44px 44px 0px 0px'
           },
-          maxHeight: '30vh',
+          maxHeight: '100vh',
           width: '100%'
         }}
       >
-        <div style={{ height: '60vh + 25px', margin: '20px' }}>
+        <div style={{ height: '80vh', margin: '20px' }}>
           <div style={{
             width: '60px',
             margin: '0 auto 15px',
@@ -172,11 +172,11 @@ function ChooseTime(props: props) {
   return (
     <React.Fragment>
       <Button variant="outlined" sx={buttonStyle}
-        startIcon={<Image width={14} height={14} src='/images/calendar.svg' alt={'calendar'}/>}
+        startIcon={<Image width={14} height={14} src='/images/calendar.svg' alt={'calendar'} />}
         endIcon={<KeyboardArrowRightIcon />}
         onClick={() => tooglePopup(true)}
       >
-        <Typography sx={{ marginRight: 'auto', color:theme.palette.mode === 'dark' ?'#fff' : '#000', fontSize: isDesktop ? '14px' : '18px', textTransform: 'none' }}>
+        <Typography sx={{ marginRight: 'auto', color: theme.palette.mode === 'dark' ? '#fff' : '#000', fontSize: isDesktop ? '14px' : '18px', textTransform: 'none' }}>
           {chosseTimeParse(dates)}
         </Typography>
       </Button>

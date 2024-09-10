@@ -8,8 +8,8 @@ function Copyright(props: any) {
     return (
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
-        <Link color="inherit" href="https://github.com/RustamKakhramanov">
-          Rustam Kakhramanov
+        <Link color="inherit" href="https://badge-digital.com">
+          Badge Digital
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -40,10 +40,10 @@ const footers = [
     //     title: 'Legal',
     //     description: ['Privacy policy', 'Terms of use'],
     // },
-    {
-        title: 'Аренда',
-        description: ['Помещения', 'Предметы'],
-    },
+    // {
+    //     title: 'Аренда',
+    //     description: ['Помещения', 'Предметы'],
+    // },
 ];
 
 export default function Footer() {

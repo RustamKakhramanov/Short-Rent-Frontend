@@ -20,7 +20,8 @@ import { userService } from '../../lib/user'
 import getConfig from 'next/config';
 import Router from 'next/router';
 import { iAuthData } from '../../interfaces/user-interface';
-import { setCookie, getCookie, deleteCookie, getCookies } from 'cookies-next';
+import {getCookie } from 'cookies-next';
+import { getRedirectLinkAndRemove } from '../../lib/pages/link.service';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -40,7 +41,7 @@ export default function CodeConfirm() {
         return typeof code == 'string' ? code : null;
     }
 
-    let inviteCode = getCodeFromRoute() ? getCodeFromRoute(): getCodeFromCookies();
+    let inviteCode = getCodeFromRoute() ? getCodeFromRoute() : getCodeFromCookies();
 
     useEffect(() => {
         if (typeof inviteCode == 'string') {
@@ -50,7 +51,7 @@ export default function CodeConfirm() {
                 });
         }
     }, [image, inviteCode])
-    
+
     useEffect(() => {
         let myInterval = setInterval(() => {
             if (distance > 0) {
@@ -82,8 +83,6 @@ export default function CodeConfirm() {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-
-
         axios.post(`${publicRuntimeConfig.apiUrl}/auth/sms/confirm`, {
             code: code,
             phone: phone,
@@ -91,9 +90,11 @@ export default function CodeConfirm() {
         }, {
             headers: { 'Content-Type': 'application/json' }
         }).then(function ({ data }: { data: iAuthData }) {
-            
             userService.setaAuth(data);
-            Router.push('/');
+            const link = getRedirectLinkAndRemove('/')
+
+            Router.push(link);
+
         }).catch(function (error) {
             if (error.response.status === 401) {
                 setErrors(error.response.data)
@@ -146,7 +147,7 @@ export default function CodeConfirm() {
                                 <InputLabel htmlFor="code">Введите код</InputLabel>
                                 <OutlinedInput
                                     value={code}
-                                    onChange={e => setCode( e.target.value)}
+                                    onChange={e => setCode(e.target.value)}
                                     name="code"
                                     id="code"
                                     inputComponent={TextMaskCustom as any}
