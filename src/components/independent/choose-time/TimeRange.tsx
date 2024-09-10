@@ -8,7 +8,7 @@ import { ThreeDots } from 'react-loading-icons';
 import { padTo2Digits } from '../../../lib/other';
 
 interface props {
-    schedules: ITimeShedule[], activeItems: number[], setItems: any, loading: bool
+    schedules: ITimeShedule[], activeItems: number[], setItems: any, loading: boolean
 }
 
 const TimeB = (index: number, value: ITimeShedule, handleChange: (arg0: number) => void, active: boolean) => {

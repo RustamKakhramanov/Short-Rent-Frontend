@@ -6,16 +6,11 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
 import styles from '../../../../styles/Place.module.css';
 import Stack from '@mui/material/Stack';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 
-import Icon from '@mui/material/Icon';
-import PetsIcon from '@mui/icons-material/Pets';
-import StarIcon from '@mui/icons-material/Star';
 import Avatar from '@mui/material/Avatar';
-import { GridView } from '@mui/icons-material';
 import { Button, Grid, ListItem, ListItemAvatar, ListItemText, SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { useMediaQuery } from 'react-responsive';
@@ -55,7 +50,7 @@ const ServiceItem = ({ title, icon, subtitle }: React.PropsWithChildren<Props>,)
 
 }
 
-export default function Abilities({ abilities }: { abilities: [iAbility] }) {
+export default function Abilities({ abilities }: { abilities: iAbility[] }) {
     const [showed, setShowed] = useState<iAbility[]>([]);
     const limit = 3;
 

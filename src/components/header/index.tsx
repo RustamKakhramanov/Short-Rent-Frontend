@@ -67,7 +67,7 @@ export default function Header(props: Props) {
                     lineHeight: '43px',
                 }}
             >
-                Rent
+                Record
             </Typography>
             <Divider />
             <List>
@@ -130,9 +130,9 @@ export default function Header(props: Props) {
                             lineHeight: '43px',
                         }}
                     >
-                        Rent
+                        Record
                     </Typography>
-                    
+
                     <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color={theme.palette.primary.light}>
                             {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness7Icon />}
                         </IconButton>
@@ -145,7 +145,7 @@ export default function Header(props: Props) {
 
                             </Button>
                         ))}
-                   
+
                     </Box>
 
                     <ProfileNav />

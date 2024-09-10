@@ -36,17 +36,17 @@ export default function SimpleMap({ coordinates }: props) {
     },
     zoom: 11
   };
-
+  console.log(defaultProps)
   return (
     <div style={{ height: '40vh', width: '100%', borderRadius: '16px', marginTop: '10px' }}>
       {/* <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBLgHfyZyApYBKP1JSENuCfiS_Sg-BP7j0' }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
-options={{
-  streetViewControl: true,
-  styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
-}}
+        options={{
+          streetViewControl: true,
+          styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'on' }] }],
+        }}
       >
 
         <Marker

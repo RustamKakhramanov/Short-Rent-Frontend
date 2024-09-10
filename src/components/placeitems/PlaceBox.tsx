@@ -18,7 +18,7 @@ import Item from '../independent/ThemedPaper';
 import { GridView } from '@mui/icons-material';
 import { Button, Grid, ListItem, ListItemAvatar, ListItemText, SvgIconTypeMap } from '@mui/material';
 import SimpleMap from '../independent/Map';
-import { iPlace } from '../../interfaces';
+import { iAbility, iPlace } from '../../interfaces';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { useMediaQuery } from 'react-responsive';
 import Abilities from './content/Abilities'
@@ -112,13 +112,11 @@ export default function PlaceBox({ place }: item) {
         onChange={handleChange}
         //indicatorColor="secondary"
         textColor="inherit"
-
         aria-label="full width tabs example"
-
       >
         <Tab label="Описание" />
         <Tab label="Отзывы" />
-        <Tab label="Карта" />
+        {/* <Tab label="Карта" /> */}
       </StyledTabs>
 
 
@@ -127,7 +125,7 @@ export default function PlaceBox({ place }: item) {
         <Typography className={styles.subtitle}>Общее описание</Typography>
         <Typography variant='body1'>{description}</Typography>
 
-        <Abilities abilities={place.abilities} />
+        <Abilities abilities={place.abilities as iAbility[]} />
       </TabPanel>
 
       <TabPanel value={value} index={1} dir={theme.direction}>
