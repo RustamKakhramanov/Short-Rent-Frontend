@@ -87,7 +87,7 @@ export default function Rent() {
                                                 sx={{ color: '#fff', mt: 2 }}
                                                 onClick={(e) => goToRentable(e)}
                                             >
-                                                Посмотреть место
+                                                Посмотреть страницу
                                             </Button>
                                         </Grid>
                                     }
