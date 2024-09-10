@@ -76,19 +76,16 @@ input {
     top: 55px;
   }
 }
-.react-simple-image-viewer__modal{
-  z-index:12000000 !important
+.react-simple-image-viewer__modal {
+  z-index: 12000000 !important;
 }
 
-.MuiLoadingButton-loadingIndicator{
-  color:#ffffffc7 !important;
+.MuiLoadingButton-loadingIndicator {
+  color: #ffffffc7 !important;
 }
 .adaptive-btn {
   width: 100%;
 }
-
-
-
 
 .pin {
   width: 30px;
@@ -177,4 +174,9 @@ input {
   100% {
     transform: translateY(0) rotate(-45deg);
   }
+}
+
+.api-text-container p {
+  margin-bottom: 0;
+  margin-top: 5px;
 }

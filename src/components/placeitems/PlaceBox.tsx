@@ -123,7 +123,7 @@ export default function PlaceBox({ place }: item) {
       <TabPanel value={value} index={0} dir={theme.direction} >
 
         <Typography className={styles.subtitle}>Общее описание</Typography>
-        <Typography variant='body1'>{description}</Typography>
+        <Typography variant='body1' className='api-text-container' dangerouslySetInnerHTML={{ __html: description }}></Typography>
 
         <Abilities abilities={place.abilities as iAbility[]} />
       </TabPanel>
